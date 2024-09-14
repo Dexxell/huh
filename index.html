@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chatter - Message people instantly on the web. No downloads, just chat!">
+    <title>Chatter - Message Instantly Online</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav {
+            margin-top: 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+        }
+        .hero {
+            background-image: url('chat-background.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+        }
+        .hero h2 {
+            font-size: 2.8em;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+        .btn {
+            background-color: #ff5722;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .features {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #fff;
+        }
+        .features h3 {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+        .features .feature {
+            margin-bottom: 40px;
+        }
+        .chat-section {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        .chat-section h3 {
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+        .chat-box {
+            background-color: white;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .chat-box input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .chat-box button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .chat-box .messages {
+            margin-top: 20px;
+            background-color: #f1f1f1;
+            padding: 15px;
+            height: 200px;
+            overflow-y: auto;
+            border-radius: 5px;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Chatter</h1>
+    <nav>
+        <a href="#features">Features</a>
+        <a href="#chat">Start Chatting</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Chat Instantly Online with Chatter</h2>
+    <p>Message friends, family, and colleagues directly on the web. No downloads, just pure chat!</p>
+    <a href="#chat" class="btn">Start Chatting Now</a>
+</section>
+
+<section class="features" id="features">
+    <h3>Why Use Chatter?</h3>
+    <div class="feature">
+        <h4>Instant Web Messaging</h4>
+        <p>No need to download anything. Open your browser and start chatting instantly with anyone, anywhere.</p>
+    </div>
+    <div class="feature">
+        <h4>Private Conversations</h4>
+        <p>All your chats are secure and private. Your messages are never shared with anyone.</p>
+    </div>
+    <div class="feature">
+        <h4>Real-Time Notifications</h4>
+        <p>Get real-time notifications for new messages so you never miss a chat.</p>
+    </div>
+</section>
+
+<section class="chat-section" id="chat">
+    <h3>Start Chatting</h3>
+    <div class="chat-box">
+        <div class="messages" id="messageBox">
+            <!-- Chat messages will appear here -->
+        </div>
+        <input type="text" id="messageInput" placeholder="Type a message..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2024 Chatter. All rights reserved.</p>
+    <p><a href="#contact" style="color: white;">Contact Us</a></p>
+</footer>
+
+<script>
+    const messageBox = document.getElementById('messageBox');
+    const messageInput = document.getElementById('messageInput');
+
+    function sendMessage() {
+        const message = messageInput.value;
+        if (message.trim() !== "") {
+            const messageElement = document.createElement('p');
+            messageElement.textContent = message;
+            messageBox.appendChild(messageElement);
+            messageInput.value = '';
+            messageBox.scrollTop = messageBox.scrollHeight; // Scroll to bottom after sending a message
+        }
+    }
+
+    messageInput.addEventListener('keypress', function (event) {
+        if (event.key === 'Enter') {
+            sendMessage();
+        }
+    });
+</script>
+
+</body>
+</html>
